@@ -2,6 +2,7 @@ from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QHBoxLayout, QVBoxLayout,
     QPushButton, QLabel, QFileDialog, QMessageBox, QGroupBox, QRadioButton
 )
+from PyQt6.QtCore import Qt
 from canvas import Canvas
 from algorithms import clip_segment_midpoint, clip_polygon_sutherland_hodgman
 
@@ -66,6 +67,7 @@ class MainWindow(QMainWindow):
         status_group = QGroupBox("Информация о данных")
         status_layout = QVBoxLayout()
         self.lbl_status = QLabel("Загрузите файл или выберите демо.")
+        self.lbl_status.setTextFormat(Qt.TextFormat.MarkdownText)
         self.lbl_status.setWordWrap(True)
         status_layout.addWidget(self.lbl_status)
         status_group.setLayout(status_layout)
